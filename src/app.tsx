@@ -3,15 +3,20 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ROUTES } from "./constants/Routes";
 import Main from "./views/Main";
+import Activity from "./views/Activity";
+import Score from "./views/Score";
+import { ActivityContextProvider } from "./hooks/ActivityContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path={ROUTES.home.path} element={<Main />} />
-        <Route path={ROUTES.score.path} element={<h2>Score</h2>} />
-        <Route path={ROUTES.activity.path} element={<h2>Activity</h2>} />
-      </Routes>
+      <ActivityContextProvider>
+        <Routes>
+          <Route path={ROUTES.home.path} element={<Main />} />
+          <Route path={ROUTES.activity.path} element={<Activity />} />
+          <Route path={ROUTES.score.path} element={<Score />} />
+        </Routes>
+      </ActivityContextProvider>
     </BrowserRouter>
   </StrictMode>,
 );

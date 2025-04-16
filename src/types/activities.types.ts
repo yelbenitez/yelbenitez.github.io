@@ -22,4 +22,6 @@ export type RoundActivityFlow = Omit<BaseActivityFlow, "questions"> & {
   questions: Round[];
 };
 
-export type ActivityList = (BaseActivityFlow | RoundActivityFlow)[]
+export type ActivityFlow = "base" | "round" | null;
+
+export type ActivityList = (BaseActivityFlow | RoundActivityFlow)[] | [];
