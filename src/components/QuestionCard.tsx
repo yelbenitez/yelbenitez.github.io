@@ -1,7 +1,7 @@
 import { Question } from "../types/activities.types";
 type mode = "question" | "result";
 
-const QuestionCard = (props: { question: Question; next: any; mode: mode }) => {
+const QuestionCard = (props: { question: Question; next: any; mode: mode}) => {
   let footer = (
     <>
       <button onClick={() => props.next(true, props.question.order)}>
