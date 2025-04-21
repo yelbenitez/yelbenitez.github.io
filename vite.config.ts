@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/yelbenitez-github-io.onrender.com',
+  base: '/yelbenitez.github.io',
   // server: {
   //   proxy: {
   //     '/api': {
