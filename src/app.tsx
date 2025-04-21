@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { ROUTES } from "./constants/Routes";
 import Main from "./views/Main";
 import Activity from "./views/Activity";
@@ -10,7 +10,7 @@ import "./styles/App.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <ActivityContextProvider>
         <Routes>
           <Route path={ROUTES.home.path} element={<Main />} />
@@ -18,6 +18,6 @@ createRoot(document.getElementById("root")!).render(
           <Route path={ROUTES.result.path} element={<Result />} />
         </Routes>
       </ActivityContextProvider>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 );
