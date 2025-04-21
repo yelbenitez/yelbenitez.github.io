@@ -1,0 +1,32 @@
+.question-card {
+  border: 3px solid #0000001a;
+  border-radius: 5px;
+}
+
+.question-card__content {
+  padding: 0px 10px 0px 10px;
+}
+
+.question-card__stimulus {
+  font-weight: 700;
+  font-style: italic;
+  background-color: rgb(253, 229, 184);
+  color: orangered;
+}
+
+.question-card__footer {
+  border-top: 3px solid #0000001a;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.question-card__footer--correct {
+  background-color: rgb(95, 222, 95);
+  color: white;
+}
+
+.question-card__footer--incorrect {
+  background-color: rgb(255, 100, 100);
+  color: white;
+}

@@ -5,6 +5,8 @@ import { ROUTES } from "../constants/Routes";
 import { BaseActivityFlow, RoundActivityFlow } from "../types/activities.types";
 import { ActivityContext } from "../hooks/ActivityContext";
 import { flowGuard } from "../utils/activity.utils";
+import Button from "../components/Button";
+import styles from "../styles/views/Main.module.css";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ const Main = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const response = await fetch("https://s3.eu-west-2.amazonaws.com/interview.mock.data/api/payload.json");
+        const response = await fetch("/api/payload.json");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -66,16 +68,27 @@ const Main = () => {
   }
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{headings}</p>
-      {(
-        activityStore.activities as (BaseActivityFlow | RoundActivityFlow)[]
-      ).map((activity: BaseActivityFlow | RoundActivityFlow, index: number) => (
-        <button onClick={() => goToActivity(index, activity)} key={index}>
-          {activity.activity_name}
-        </button>
-      ))}
+    <div className={styles["menu"]}>
+      <h1>{title} 🔍</h1>
+      <div className={styles["menu__headings"]}>{headings}</div>
+      <div className={styles["menu__activity-list"]}>
+        <p>Select an activity to begin:</p>
+        {(
+          activityStore.activities as (BaseActivityFlow | RoundActivityFlow)[]
+        ).map(
+          (activity: BaseActivityFlow | RoundActivityFlow, index: number) => (
+            <div className={styles["menu__activity-button"]}>
+              <Button
+                func={() => goToActivity(index, activity)}
+                isWide={true}
+                key={index}
+              >
+                {activity.activity_name}
+              </Button>
+            </div>
+          ),
+        )}
+      </div>
     </div>
   );
 };

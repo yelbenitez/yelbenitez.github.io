@@ -1,0 +1,6 @@
+.round-card {
+  border: 3px solid #0000001a;
+  border-radius: 5px;
+  min-width: 230px;
+  padding: 0px 10px 10px 10px;
+}

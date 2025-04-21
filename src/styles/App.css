@@ -1,0 +1,15 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Quicksand", sans-serif; /* For the Quicksand font */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center;
+}

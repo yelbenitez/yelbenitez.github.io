@@ -1,0 +1,18 @@
+.result {
+  margin-top: 32px;
+}
+
+.result__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

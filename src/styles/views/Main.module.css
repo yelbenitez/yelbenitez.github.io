@@ -1,0 +1,20 @@
+.menu {
+  h1 {
+    font-family: "Poetsen One", cursive;
+  }
+}
+
+.menu__headings {
+  background-color: #c4d0ff;
+  border: 1px solid #0463d7;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.menu__activity-list {
+  margin-top: 50px;
+}
+
+.menu__activity-button {
+  margin-bottom: 10px;
+}

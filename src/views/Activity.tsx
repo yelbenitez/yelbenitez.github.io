@@ -10,10 +10,11 @@ import {
   BaseActivityFlow,
   RoundActivityFlow,
   Question,
-  Round
+  Round,
 } from "../types/activities.types";
 import QuestionCard from "../components/QuestionCard";
 import RoundCard from "../components/RoundCard";
+import styles from "../styles/views/Activity.module.css";
 
 type cardType = "question" | "round";
 
@@ -25,8 +26,10 @@ const Activity = () => {
   >(activityStore.activities[activityStore.selectedActivity] || {});
   const [questionCursor, setQuestionCursor] = useState<number>(0);
   const [roundCursor, setRoundCursor] = useState<number>(0);
-  const [showCard, setShowCard] = useState<cardType | null>(activityStore.flow === "base" ? "question" : "round");
-  
+  const [showCard, setShowCard] = useState<cardType | null>(
+    activityStore.flow === "base" ? "question" : "round",
+  );
+
   const answerQuestion = (isCorrect: boolean, questionOrder: number) => {
     const updateActivity = activity;
     const index = questionOrder - 1;
@@ -38,7 +41,7 @@ const Activity = () => {
             isCorrect,
           );
           setActivity(updateActivity);
-    
+
           if (questionOrder - 1 === updateActivity.questions.length - 1) {
             navigate(ROUTES.score.path);
           } else {
@@ -48,17 +51,23 @@ const Activity = () => {
         case "round":
           const roundIndex = roundCursor;
 
-          ((updateActivity.questions[roundIndex] as Round).questions[index] as Question).user_answers.push(
-            isCorrect,
-          );
+          (
+            (updateActivity.questions[roundIndex] as Round).questions[
+              index
+            ] as Question
+          ).user_answers.push(isCorrect);
           setActivity(updateActivity);
 
-          if (questionOrder - 1 === (updateActivity.questions as Round[])[roundIndex].questions.length - 1) {
-            if ((roundCursor) === updateActivity.questions.length - 1) {
+          if (
+            questionOrder - 1 ===
+            (updateActivity.questions as Round[])[roundIndex].questions.length -
+              1
+          ) {
+            if (roundCursor === updateActivity.questions.length - 1) {
               navigate(ROUTES.score.path);
             } else {
               setRoundCursor(roundIndex + 1);
-              setShowCard('round');
+              setShowCard("round");
               setQuestionCursor(0);
             }
           } else {
@@ -66,39 +75,50 @@ const Activity = () => {
           }
           break;
         default:
-          break
+          break;
       }
     }
   };
 
   const skip = () => {
     setShowCard("question");
-  }
+  };
 
   let card;
   if (isValidActivity(activity)) {
     if (showCard === "question") {
       card = (
-        <><QuestionCard
-        question={getQuestions(activity, activityStore.flow, roundCursor)[questionCursor] as Question}
-        next={answerQuestion}
-        mode="question"
-      />
+        <>
+          <QuestionCard
+            question={
+              getQuestions(activity, activityStore.flow, roundCursor)[
+                questionCursor
+              ] as Question
+            }
+            next={answerQuestion}
+            mode="question"
+          />
         </>
-      )
+      );
     } else {
       card = (
         <>
-          <RoundCard round={activity.questions[roundCursor] as Round} next={skip}/>
+          <RoundCard
+            round={activity.questions[roundCursor] as Round}
+            next={skip}
+          />
         </>
-      )
+      );
     }
   }
 
   if (isValidActivity(activity)) {
     return (
-      <div>
-        {activity.activity_name}
+      <div className={styles["activity"]}>
+        <p>
+          #️⃣ {activity.activity_name}{" "}
+          {activityStore.flow === "round" ? `/ Round ${roundCursor + 1}` : ""}
+        </p>
         {card}
       </div>
     );

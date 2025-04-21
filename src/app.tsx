@@ -6,6 +6,7 @@ import Main from "./views/Main";
 import Activity from "./views/Activity";
 import Score from "./views/Score";
 import { ActivityContextProvider } from "./hooks/ActivityContext";
+import "./styles/App.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
