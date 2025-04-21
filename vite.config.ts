@@ -5,13 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: './',
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://s3.eu-west-2.amazonaws.com/interview.mock.data',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'https://s3.eu-west-2.amazonaws.com/interview.mock.data',
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, ''),
+  //     },
+  //   },
+  // },
 });

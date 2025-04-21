@@ -33,8 +33,9 @@ const Main = () => {
 
   useEffect(() => {
     const fetchActivities = async () => {
+      const API_URL = "https://cm-proxy-server.onrender.com/proxy/payload";
       try {
-        const response = await fetch("/api/payload.json");
+        const response = await fetch(API_URL);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -77,11 +78,10 @@ const Main = () => {
           activityStore.activities as (BaseActivityFlow | RoundActivityFlow)[]
         ).map(
           (activity: BaseActivityFlow | RoundActivityFlow, index: number) => (
-            <div className={styles["menu__activity-button"]}>
+            <div className={styles["menu__activity-button"]} key={index}>
               <Button
                 func={() => goToActivity(index, activity)}
                 isWide={true}
-                key={index}
               >
                 {activity.activity_name}
               </Button>
