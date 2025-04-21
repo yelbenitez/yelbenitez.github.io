@@ -13,7 +13,7 @@ const Button = (props: {
   return (
     <button
       className={buttonClasses}
-      onClick={props.func}
+      onClick={() => props.func()}
       disabled={props.disabled}
     >
       {props.children}

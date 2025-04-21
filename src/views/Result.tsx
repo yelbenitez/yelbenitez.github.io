@@ -110,7 +110,12 @@ const Result = () => {
     );
   }
 
-  return <div>No activity selected</div>;
+  return (
+    <div className="no-activity">
+      <p>No activity selected</p>
+      <Link to={ROUTES.home.path}>Go to Home</Link>
+    </div>
+  );
 };
 
 export default Result;

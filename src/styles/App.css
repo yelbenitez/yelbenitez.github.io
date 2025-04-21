@@ -13,3 +13,12 @@ body {
   justify-content: center; /* Centers items horizontally */
   align-items: center;
 }
+
+.no-activity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

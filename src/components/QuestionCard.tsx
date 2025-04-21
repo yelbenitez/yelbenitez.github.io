@@ -3,7 +3,11 @@ import Button from "./Button";
 import styles from "../styles/components/QuestionCard.module.css";
 type mode = "question" | "result";
 
-const QuestionCard = (props: { question: Question; next: any; mode: mode }) => {
+const QuestionCard = (props: {
+  question: Question;
+  next: (isCorrect: boolean, questionOrder: number) => void;
+  mode: mode;
+}) => {
   const footerClasses = `${styles["question-card__footer"]} ${props.question.user_answers[0] === props.question.is_correct ? styles["question-card__footer--correct"] : styles["question-card__footer--incorrect"]}`;
   let footer = (
     <>

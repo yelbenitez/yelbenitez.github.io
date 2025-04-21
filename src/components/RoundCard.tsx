@@ -2,7 +2,7 @@ import { Round } from "../types/activities.types";
 import Button from "./Button";
 import styles from "../styles/components/RoundCard.module.css";
 
-const RoundCard = (props: { round: Round; next: any }) => {
+const RoundCard = (props: { round: Round; next: () => void }) => {
   return (
     <>
       <div className={styles["round-card"]}>

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { ActivityContext } from "../hooks/ActivityContext";
 import { isValidActivity } from "../utils/typeGuard.utils";
@@ -124,7 +124,12 @@ const Activity = () => {
     );
   }
 
-  return <div>No activity selected</div>;
+  return (
+    <div className="no-activity">
+      <p>No activity selected</p>
+      <Link to={ROUTES.home.path}>Go to Home</Link>
+    </div>
+  );
 };
 
 export default Activity;
