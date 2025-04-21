@@ -9,8 +9,8 @@ export const ROUTES: Routes = {
     path: "/activity",
     name: "Activity",
   },
-  score: {
-    path: "/score",
-    name: "Score",
+  result: {
+    path: "/result",
+    name: "Result",
   },
 };

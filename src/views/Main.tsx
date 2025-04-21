@@ -79,10 +79,7 @@ const Main = () => {
         ).map(
           (activity: BaseActivityFlow | RoundActivityFlow, index: number) => (
             <div className={styles["menu__activity-button"]} key={index}>
-              <Button
-                func={() => goToActivity(index, activity)}
-                isWide={true}
-              >
+              <Button func={() => goToActivity(index, activity)} isWide={true}>
                 {activity.activity_name}
               </Button>
             </div>

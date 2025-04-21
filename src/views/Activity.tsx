@@ -43,7 +43,7 @@ const Activity = () => {
           setActivity(updateActivity);
 
           if (questionOrder - 1 === updateActivity.questions.length - 1) {
-            navigate(ROUTES.score.path);
+            navigate(ROUTES.result.path);
           } else {
             setQuestionCursor(index + 1);
           }
@@ -64,7 +64,7 @@ const Activity = () => {
               1
           ) {
             if (roundCursor === updateActivity.questions.length - 1) {
-              navigate(ROUTES.score.path);
+              navigate(ROUTES.result.path);
             } else {
               setRoundCursor(roundIndex + 1);
               setShowCard("round");

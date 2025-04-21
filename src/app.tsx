@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ROUTES } from "./constants/Routes";
 import Main from "./views/Main";
 import Activity from "./views/Activity";
-import Score from "./views/Score";
+import Result from "./views/Result";
 import { ActivityContextProvider } from "./hooks/ActivityContext";
 import "./styles/App.css";
 
@@ -15,7 +15,7 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route path={ROUTES.home.path} element={<Main />} />
           <Route path={ROUTES.activity.path} element={<Activity />} />
-          <Route path={ROUTES.score.path} element={<Score />} />
+          <Route path={ROUTES.result.path} element={<Result />} />
         </Routes>
       </ActivityContextProvider>
     </BrowserRouter>

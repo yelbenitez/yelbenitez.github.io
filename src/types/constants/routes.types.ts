@@ -6,5 +6,5 @@ export interface RouteDefinition {
 export interface Routes {
   home: RouteDefinition;
   activity: RouteDefinition;
-  score: RouteDefinition;
+  result: RouteDefinition;
 }

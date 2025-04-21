@@ -11,9 +11,9 @@ import {
   Round,
 } from "../types/activities.types";
 import QuestionCard from "../components/QuestionCard";
-import styles from "../styles/views/Score.module.css";
+import styles from "../styles/views/Result.module.css";
 
-const Score = () => {
+const Result = () => {
   const [activityStore] = useContext(ActivityContext)!;
   const [activity] = useState<BaseActivityFlow | RoundActivityFlow | {}>(
     activityStore.activities[activityStore.selectedActivity] || {},
@@ -113,4 +113,4 @@ const Score = () => {
   return <div>No activity selected</div>;
 };
 
-export default Score;
+export default Result;
